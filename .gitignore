@@ -1,0 +1,26 @@
+# Ignore virtual environment
+venv/
+
+# Ignore database files
+*.sqlite3
+
+# Ignore static files collected by Django
+/staticfiles/
+
+# Ignore media files uploaded by users
+/media/
+
+# Ignore secret settings file
+/config/settings_secret.py
+
+# Ignore local development settings
+/config/settings_local.py
+
+# Ignore any compiled Python files
+*.pyc
+
+# Ignore macOS system files
+.DS_Store
+
+#environment variables
+.env

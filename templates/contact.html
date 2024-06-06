@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Contacts{% endblock %}
+{% block content %}
+<main>
+	<section class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="breadcrumbs mb-4"> <a href="{%url 'home_page_view'%}">Home</a>
+						<span class="mx-1">/</span>  <a href="#!">Contact</a>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="pr-0 pr-lg-4">
+						<div class="content">Hi, there! Just leave your details and message. I will contact you soon, I promise😊
+							<div class="mt-5">
+								<p class="h3 mb-3 font-weight-normal"><a class="text-dark" href="#">qobiljonkhayrullayev@gmail.com</a>
+								</p>
+								<p class="mb-3"><a class="text-dark" href="#">+998 (91) 148 68 02</a>
+								</p>
+								<p class="mb-2">Tallimarjon 1A, Tashkent, Uzbekistan</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mt-4 mt-lg-0">
+					<form method="post" action="#!" class="row">
+						{%csrf_token%}
+						<div class="col-md-6">
+							<input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name">
+						</div>
+						<div class="col-md-6">
+							<input type="email" class="form-control mb-4" placeholder="Email" name="email" id="email">
+						</div>
+						<div class="col-12">
+							<input type="text" class="form-control mb-4" placeholder="Subject" name="subject" id="subject">
+						</div>
+						<div class="col-12">
+							<textarea name="message" id="message" class="form-control mb-4" placeholder="Type You Message Here" rows="5"></textarea>
+						</div>
+						<div class="col-12">
+							<button class="btn btn-outline-primary" type="submit">Send Message</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+{%endblock%}

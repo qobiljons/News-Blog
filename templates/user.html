@@ -1,0 +1,160 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}User{%endblock%}
+{%block content%}
+
+<style>
+
+.profile-header {
+  background: linear-gradient(135deg, #8bc34a, #cddc39);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+}
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-top: -75px;
+  }
+
+  .profile-info h5,
+  .profile-info p {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+
+  .profile-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .profile-stats div {
+    text-align: center;
+  }
+
+  .profile-stats p {
+    margin: 5px 0;
+  }
+
+  .profile-skills,
+  .profile-interests {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-skills p,
+  .profile-interests p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .skill-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 5px 0;
+  }
+
+  .skill-bar-fill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(135deg, #6d5bba, #8d58bf);
+    border-radius: 10px;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 2em;
+  }
+
+  .recent-posts-title {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+  }
+
+</style>
+
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center">
+      <div class="col col-lg-9 col-xl-8 ">
+        <div class="card shadow">
+          <div class="profile-header">
+            <div class="d-flex align-items-center justify-content-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                alt="Generic placeholder image" class="profile-image">
+              <a href="#" class="change-picture-icon" style="color:#EEE"><i class="fas fa-camera"></i></a>
+            </div>
+            <div class="profile-info">
+              <h5>Andy Horwitz</h5>
+              <p>New York</p>
+              <button type="button" class="btn btn-outline-light btn-sm mt-2">Edit Profile</button>
+            </div>
+          </div>
+          <div class="profile-stats">
+            <div>
+              <p class="mb-1 h5">253</p>
+              <p class="small text-muted">Posts</p>
+            </div>
+            <div>
+              <p class="mb-1 h5">1026</p>
+              <p class="small text-muted">Followers</p>
+            </div>
+            <div>
+              <p class="mb-1 h5">478</p>
+              <p class="small text-muted">Following</p>
+            </div>
+          </div>
+
+          <div class="card-body p-4 text-black">
+            <div class="d-flex justify-content-between align-items-center mb-4 recent-posts-title">
+              <p class="lead fw-normal mb-0">My Posts</p>
+              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+            </div>
+            <div class="row">
+            {%for article in object_list%}
+            <div class="col-md-6 mb-4">
+              <article class="card article-card article-card-sm h-100">
+                <a href="{%url 'single_article_view' article.pk%}">
+                  <div class="card-image">
+                    <div class="post-info">
+                      <span class="text-uppercase">{{article.created_date}}</span>
+                      <span class="text-uppercase">2 minutes read</span>
+                    </div>
+                    <img loading="lazy" decoding="async" src="{{article.img.url}}" alt="Post Thumbnail" class="w-100">
+                  </div>
+                </a>
+                <div class="card-body px-0 pb-0">
+                  <ul class="post-meta mb-2">
+                    <li>
+                      <a href="#!">{{article.category}}</a>
+                    </li>
+                  </ul>
+                  <h2><a class="post-title" href="{%url 'single_article_view' article.pk%}">{{article.title}}</a></h2>
+                  <p class="card-text">{{article.title}}</p>
+                  <div class="content">
+                    <a class="read-more-btn" href="{%url 'single_article_view' article.pk%}">Read Full Article</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            {%endfor%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%endblock%}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Contacts{% endblock %}
+{% block content %}
+
+<main>
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <img loading="lazy" decoding="async" src="{%static 'images/404.png'%}" alt="404" class="img-fluid mb-4" width="500" height="350">
+          {%if error%}
+          <h1 class="mb-4">{{error}}</h1>
+          {%else%}
+          <h1 class="mb-4">Page Not Found!</h1>
+          {%endif%}
+          <a href="index.html" class="btn btn-outline-primary">Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{%endblock%}
