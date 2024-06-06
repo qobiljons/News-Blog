@@ -33,8 +33,9 @@
                     <div class="mt-5">
                         <!-- Add Edit and Delete Buttons -->
                         <div class="mb-3">
-                            <a href="{% url 'update_news_view' article.id %}" class="btn btn-primary">Edit</a>
-                            <a href="{% url 'delete_news_view' article.id%}" class="btn btn-danger">Delete</a>
+                            <a href="{% url 'create_news_view' %}" class="btn btn-success">Create</a>
+                            <a href="{% url 'update_news_view' article.slug %}" class="btn btn-primary">Edit</a>
+                            <a href="{% url 'delete_news_view' article.slug%}" class="btn btn-danger">Delete</a>
                         </div>
 
                         <!-- Disqus Comments -->

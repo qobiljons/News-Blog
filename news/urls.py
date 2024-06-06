@@ -6,7 +6,8 @@ from .views import (
     ContactPageView,
     category_page_view,
     NewsUpdateView,
-    NewsDeleteView)
+    NewsDeleteView,
+    NewsCreateView)
 
 
 urlpatterns = [
@@ -15,7 +16,8 @@ urlpatterns = [
     path("user/", UserPageView.as_view(), name="user_page_view"),
     path("contact/", ContactPageView.as_view(), name="contact_page_view"),
     path("<str:category_name>/", category_page_view, name="category_page_view"),
-    path("news/<int:pk>/update", NewsUpdateView.as_view(), name="update_news_view"),
-    path("news/<int:pk>/delete", NewsDeleteView.as_view(), name="delete_news_view")
+    path("news/create/", NewsCreateView.as_view(), name="create_news_view"),
+    path("news/<slug>/update", NewsUpdateView.as_view(), name="update_news_view"),
+    path("news/<slug>/delete", NewsDeleteView.as_view(), name="delete_news_view"),
 ]
 
