@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView, ListView, FormView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import TemplateView, ListView, FormView, UpdateView, DeleteView
 from .forms import ContactForm
 
 from .models import News, Category
@@ -61,7 +62,7 @@ class ContactPageView(TemplateView):
     def get(self, request, *args, **kwargs):
         form = ContactForm()
         context = {
-            "form":form
+            "form": form
         }
         return render(request, template_name=self.template_name, context=context)
 
@@ -97,3 +98,17 @@ def category_page_view(request, category_name):
     }
 
     return render(request, "category.html", context=context)
+
+
+class NewsUpdateView(UpdateView):
+    model = News
+    fields = "__all__"
+    template_name = "update_news.html"
+
+
+class NewsDeleteView(DeleteView):
+    model = News
+    template_name = "delete_news.html"
+    success_url = reverse_lazy('home_page_view')
+
+
