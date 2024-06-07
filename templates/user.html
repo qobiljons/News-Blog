@@ -96,22 +96,23 @@
               <a href="#" class="change-picture-icon" style="color:#EEE"><i class="fas fa-camera"></i></a>
             </div>
             <div class="profile-info">
-              <h5>Andy Horwitz</h5>
+              <h5>{{user.first_name}} {{user.last_name}}</h5>
               <p>New York</p>
-              <button type="button" class="btn btn-outline-light btn-sm mt-2">Edit Profile</button>
+               <a href="{% url 'create_news_view' %}" class="btn-sm btn btn-success mt-2">Create article</a>
+              <a type="button" class="btn btn-outline-light btn-sm mt-2">Edit Profile</a>
             </div>
           </div>
           <div class="profile-stats">
             <div>
-              <p class="mb-1 h5">253</p>
+              <p class="mb-1 h5">0</p>
               <p class="small text-muted">Posts</p>
             </div>
             <div>
-              <p class="mb-1 h5">1026</p>
+              <p class="mb-1 h5">0</p>
               <p class="small text-muted">Followers</p>
             </div>
             <div>
-              <p class="mb-1 h5">478</p>
+              <p class="mb-1 h5">0</p>
               <p class="small text-muted">Following</p>
             </div>
           </div>

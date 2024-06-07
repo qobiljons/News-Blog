@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap4",
     'news',
+    'accounts'
 
 ]
 
@@ -134,4 +135,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# REDIRECTING URLS
+
+LOGIN_REDIRECT_URL = "home_page_view"
+LOGOUT_REDIRECT_URL = "home_page_view"
 
